@@ -3,10 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
-    mode: 'development',
     output:  {
         path: path.resolve(__dirname, 'dist'),
-        filename: "[name].js",
+        filename: "[name][contenthash].js",
         clean: true
     },
 
@@ -22,8 +21,16 @@ module.exports = {
                 loader: 'babel-loader'
             },
             {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
                 test: /\.html$/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.(png|svg|gif|jpe?g)$/,
+                type: 'asset/resource'
             }
         ]
     },

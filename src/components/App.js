@@ -1,10 +1,16 @@
-import React from 'react';
+import { Navbar } from "./Navbar"
+import { Footer } from './Footer'
+import { Main } from "./Main"
+
 
 const App = () => {
     return (
-        <h1>
-            Hello word from React
-        </h1>)
+        <>
+            <Navbar />
+            <Main />
+            <Footer />
+        </>
+    )
 }
 
 export {App}
